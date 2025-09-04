@@ -7,6 +7,7 @@ using namespace std;
     vector<vector<int>> directions{{0,-1},{0,1},{-1,0},{1,0}};
 
     
+    //DFS traversal 
     void dfs(int row, int col, vector<vector<int>>& temp, vector<vector<int>>& image, int& color, int& initColor){ 
         int n= image.size();
         int m= image[0].size();
@@ -25,6 +26,38 @@ using namespace std;
         int initColor= image[sr][sc];
         vector<vector<int>> temp= image;
         dfs(sr,sc,temp,image,color,initColor);
+        return temp;
+
+    }
+
+    //Bfs traversal
+    void bfs(int row, int col, vector<vector<int>>& temp, vector<vector<int>>& image, int& color, int& initColor){ 
+        int n= image.size();
+        int m= image[0].size();
+        temp[row][col]= color;
+        queue<pair<int,int>>q;
+        q.push({row,col});
+        
+        //colouring the neighbour
+        while(!q.empty()){
+            int row=q.front().first;
+            int col=q.front().second;
+            q.pop();
+            for(auto& dir : directions){
+                int nrow= row+ dir[0];
+                int ncol= col+ dir[1];
+                if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&
+                image[nrow][ncol]== initColor && temp[nrow][ncol] != color){
+                    temp[nrow][ncol]=color;
+                    q.push({nrow,ncol});
+                }
+            } 
+        }
+    }
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        int initColor= image[sr][sc];
+        vector<vector<int>> temp= image;
+        bfs(sr,sc,temp,image,color,initColor);
         return temp;
 
     }
