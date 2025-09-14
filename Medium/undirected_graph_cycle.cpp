@@ -46,3 +46,7 @@ bool bfs(vector<vector<int>>& adj, int u, vector<bool>& vis){
         }
         return false;
     }
+
+
+//TC -> 0(V + E)
+//SC -> 0(V + E), kuki graph s adjacency list bnayi h 
