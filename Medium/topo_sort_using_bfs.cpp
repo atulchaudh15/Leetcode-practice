@@ -1,6 +1,13 @@
 
 // -> Topological sort using bfs traversal (also known as Kahn' Algorithm)
 
+//Approach ->
+
+// Step 1 -> forming indegree vector to count the number of incoming nodes (i.e. indegree)
+// Step 2 -> filling queue with node whose indegree is zero
+// Step 3 -> Simple bfs traversal of graph
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
