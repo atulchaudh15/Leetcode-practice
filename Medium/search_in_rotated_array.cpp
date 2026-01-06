@@ -31,5 +31,6 @@ int search(vector<int>& nums, int target) {
         return -1;
     }
 //Approach -> binary search
+//KEY POINT-> we nee to search for the sorted part in that rotated array
 //TC->0(long n)
 //SC->0(1)
