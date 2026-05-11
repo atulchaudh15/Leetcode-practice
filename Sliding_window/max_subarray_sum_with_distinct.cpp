@@ -44,3 +44,5 @@ long long maximumSubarraySum(vector<int>& nums, int k) {
         return maxSum;
 
     }
+
+//Ye ques waise kaafi easy ho jaata lekin distinct pooch liye isliye isme map use krna pda aur thoda tricky ho jata hai
