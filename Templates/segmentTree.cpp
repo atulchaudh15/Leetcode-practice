@@ -20,7 +20,8 @@ class SegmentTree{
 
     int query(int idx, int low, int high, int left, int right, vector<int>& seg){
         //teen case honge 
-        //no overlap , {left, right}[low, high]{left, right}
+        //no overlap , {left, right}[low, high]
+        //             [low, high]{left, right}
         if(left < low && right > high){
             return INT_FAST32_MAX;
         }
